@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ssmtest.Mapper.AdminMapper">
+	<!--  <resultMap id="adminMap" type="Admin">
+        <id column="aid" property="aid" />
+        <result column="aname" property="aname" />
+        <result column="apwd" property="apwd" />
+        <result column="acname" property="acname" />
+        <result column="atel" property="atel" />
+        <result column="aemail" property="aemail" />   
+         <collection property="plist"  column="aid" select="org.ssmtest.Mapper.PrivMapper.selectPrivByAid"/> 
+    </resultMap>  -->
+    <resultMap id="AdminMap" type="Admin">
+    	<result column="aid" property="aid" />
+        <result column="aname" property="aname" />
+        <result column="apwd" property="apwd" />
+        <result column="acname" property="acname" />
+        <result column="atel" property="atel" />
+        <result column="aemail" property="aemail" />   
+         <collection property="rname"  column="aid" select="org.ssmtest.Mapper.RoleMapper.selectRoleAdminById"/>  
+	</resultMap>
+    <select id="selectAdminByAcnameAndApwd" parameterType="Admin" resultType="Admin" >
+		select * from tc_admin where acname=#{acname} and apwd=#{apwd}   
+	</select>
+	<update id="updateAdminApwdByAid" parameterType="Admin" >
+		update tc_admin set apwd=#{apwd} where aid=#{aid}
+	</update>
+	<update id="updateAdminIntro" parameterType="Admin" >
+		update tc_admin set aname=#{aname},atel=#{atel},aemail=#{aemail},by001= #{by001} where aid=#{aid}
+	</update>	
+	<select id="selectAllAdmin" resultMap="AdminMap" >
+			select* from tc_admin
+	</select>
+		
+</mapper>
