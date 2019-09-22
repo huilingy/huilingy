@@ -30,5 +30,12 @@ public class RoleSerivceImpl implements RoleService{
 		
 		return roleMapper.selectAllRole();
 	}
+	@Override
+	public int insertRole(Role role) {
+		// TODO Auto-generated method stub
+		roleMapper.addRole(role);
+		System.out.println("service"+role.getRid());
+		return 1;
+	}
 
 }

@@ -13,4 +13,9 @@ public interface RoleMapper {
 	 */
 	List<Role> selectRoleAdminById(int aid);
 	List<Role> selectAllRole();
+	/**Ìí¼Ó½ÇÉ«
+	 * @param role
+	 * @return
+	 */
+	int addRole(Role role);
 }

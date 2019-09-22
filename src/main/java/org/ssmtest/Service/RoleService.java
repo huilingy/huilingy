@@ -11,4 +11,5 @@ public interface RoleService {
 	 */
 	public List<Role> selectRoleByAid(int aid);
 	public List<Role> selectAllRole();
+	public int insertRole(Role role);
 }

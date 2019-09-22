@@ -16,7 +16,7 @@ public class PrivServiceImpl implements PrivService{
 	@Autowired
 	private PrivMapper privMapper;
 	@Autowired
-	private RoleMapper RoleMapper;
+	private RoleMapper roleMapper;
 	/**
 	 * 查询所有的权限
 	 */
@@ -25,4 +25,8 @@ public class PrivServiceImpl implements PrivService{
 		return privMapper.selectAllPriv();
 	}
 
-}
+	@Override
+	public int insertPriv(int rid, int pid) {
+		
+		return privMapper.insertPriv(rid, pid);
+	}}

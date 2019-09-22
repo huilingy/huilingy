@@ -7,6 +7,13 @@ public class Role {
 	private int rid;
 	private String rname;
 	private Date createtime;
+	private String createuser;
+	public String getCreateuser() {
+		return createuser;
+	}
+	public void setCreateuser(String crateuser) {
+		this.createuser = crateuser;
+	}
 	private List<Priv> privList;
 	public List<Priv> getPrivList() {
 		return privList;

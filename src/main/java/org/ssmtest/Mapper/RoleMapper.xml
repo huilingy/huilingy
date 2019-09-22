@@ -2,16 +2,19 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.ssmtest.Mapper.RoleMapper">
-<resultMap id="RoleresultMap" type="Role">
+	<mapper namespace="org.ssmtest.Mapper.RoleMapper">
+	<resultMap id="RoleresultMap" type="Role">
         <id column="rid" property="rid" />
         <result column="rname" property="rname" />
          <collection property="privList"  column="rid" select="org.ssmtest.Mapper.PrivMapper.selectPrivByRid"/>  
-</resultMap>
+	</resultMap>
 	<select id="selectRoleAdminById"  resultType="Role" >
 		select * from tc_role where tc_role.rid in (select rid from tcadmin_role where aid=#{aid} )
 	</select>	
 	<select id="selectAllRole"  resultMap="RoleresultMap" >
 		select * from tc_role;
 	</select>
+	<insert id="addRole" useGeneratedKeys="true" keyProperty="rid" keyColumn="rid">
+		insert into tc_role(rname,createuser,createtime) values(#{rname},#{createuser},#{createtime})
+	</insert>
 </mapper>

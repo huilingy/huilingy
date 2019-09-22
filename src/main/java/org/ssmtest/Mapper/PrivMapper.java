@@ -22,4 +22,8 @@ public interface PrivMapper {
 	 * 查询所有的权限
 	 */
 	List<Priv> selectAllPriv();
+	/**
+	 * 插入权限
+	 */
+	int insertPriv(int rid ,int pid);
 }

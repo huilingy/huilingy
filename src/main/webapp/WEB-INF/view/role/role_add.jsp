@@ -47,7 +47,7 @@
         <div id="main">            
             <!--保存操作后的提示信息：成功或者失败-->
             <div id="save_result_info" class="save_success">${msg1 }</div><!--保存失败，角色名称重复！-->
-            <form action="../../role/AddRoleAtion" method="" class="main_form">
+            <form action="role_add_yes" method="" class="main_form">
                 <div class="text_info clearfix"><span>角色名称：</span></div>
                 <div class="input_info">
                     <input type="text" class="width200" name="rname"/>
